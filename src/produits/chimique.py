@@ -8,7 +8,9 @@ class Chimique(Produit):
 
     def calculer_frais(self, type_cargaison, distance, express=False):
         cout = super().calculer_frais(type_cargaison, distance, express)
-        return cout + self.toxicite * 10000 if type_cargaison == "Maritime" else cout
+        if type_cargaison == "Maritime":
+            cout = cout + self.toxicite * 10000
+        return cout
 
     def __str__(self):
         return f"{self.get_type()}({self.libelle}, {self.poids} kg, toxicite={self.toxicite})"

@@ -9,10 +9,14 @@ class GestionnaireCargaisons:
         if not self.cargaisons:
             print("Aucune cargaison enregistree.")
             return
-        for i, c in enumerate(self.cargaisons, 1):
-            print(f"{i}. {c}")
-            for p in c.produits:
-                print(f"   - {p}")
+        for index_cargaison in range(len(self.cargaisons)):
+            cargaison = self.cargaisons[index_cargaison]
+            print(f"{index_cargaison + 1}. {cargaison}")
+            for index_produit in range(len(cargaison.produits)):
+                print(f"   - {cargaison.produits[index_produit]}")
 
     def get_cout_total_toutes_cargaisons(self):
-        return sum(c.get_cout_total() for c in self.cargaisons)
+        cout_total = 0
+        for cargaison in self.cargaisons:
+            cout_total = cout_total + cargaison.get_cout_total()
+        return cout_total
