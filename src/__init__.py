@@ -1,17 +1,18 @@
-from .cargaisons import Cargaison, CargaisonAerienne, CargaisonMaritime, CargaisonRoutiere
-from .gestion import GestionnaireCargaisons
-from .produits import Alimentaire, Chimique, Fragile, Incassable, Materiel, Produit
+from .models import (
+    Produit, Alimentaire, Chimique, Fragile, Incassable, Materiel,
+    Cargaison, CargaisonRoutiere, CargaisonMaritime, CargaisonAerienne,
+    GestionnaireCargaisons
+)
+from .views import CargaisonView, InputView
+from .controllers import CargaisonController
 
 __all__ = [
-    "Produit",
-    "Materiel",
-    "Alimentaire",
-    "Chimique",
-    "Fragile",
-    "Incassable",
-    "Cargaison",
-    "CargaisonAerienne",
-    "CargaisonMaritime",
-    "CargaisonRoutiere",
+    # Models
+    "Produit", "Materiel", "Alimentaire", "Chimique", "Fragile", "Incassable",
+    "Cargaison", "CargaisonRoutiere", "CargaisonMaritime", "CargaisonAerienne",
     "GestionnaireCargaisons",
+    # Views
+    "CargaisonView", "InputView",
+    # Controllers
+    "CargaisonController"
 ]
